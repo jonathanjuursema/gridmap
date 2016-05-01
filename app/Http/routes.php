@@ -24,12 +24,16 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('tool.home');
-    });
+    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
 
-    Route::get('/gridmap', function () {
-        return view('gridmap.map');
-    });
+    Route::post('start', ['as' => 'start', 'uses' => 'StartController@start']);
+
+    Route::get('password/pick', ['as' => 'pickpassword', 'uses' => 'PasswordController@pick']);
+
+    Route::post('password/save', ['as' => 'savepassword', 'uses' => 'PasswordController@save']);
+
+    Route::get('survey', ['as' => 'startsurvey', 'uses' => 'SurveyController@start']);
+
+    Route::post('survey/submit', ['as' => 'submitsurvey', 'uses' => 'SurveyController@submit']);
 
 });

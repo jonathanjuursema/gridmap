@@ -2,27 +2,53 @@
 
 @section('body')
 
-    <div class="site-wrapper">
+    <div class="container">
 
-        <div class="site-wrapper-inner">
+        <div class="row">
 
-            <div class="cover-container">
+            <div class="col-md-6 col-md-offset-3" style="text-align: center;">
 
-                <div class="inner cover">
-                    <h1 class="cover-heading">GridMap Research Tool</h1>
-                    <p class="lead">
-                        This is a research tool for a research project conducted by students of the University of
-                        Twente. For more information about the research project and the students involved you can read
-                        the information brochure below.
-                    </p>
-                    <p class="lead">
-                        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#aboutModal">
+                <h1 style="margin: 100px auto;">GridMap Research Tool</h1>
+
+                <p style="text-align: justify;">
+                    This is a research tool for a research project conducted by students of the master program Computer
+                    Security at the University of Twente. For more information about the research project and the
+                    students involved you can read the information brochure below.
+                </p>
+
+                <div class="row" style="margin-top: 50px;">
+
+                    <div class="col-md-6">
+                        <a class="btn btn-primary" data-toggle="modal" data-target="#aboutModal"
+                           style="width: 200px;">
                             Information Brochure
                         </a>
-                        <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#consentModal">
-                            Take Survey
+                    </div>
+
+                    <div class="col-md-6">
+                        <a class="btn btn-success" data-toggle="modal" data-target="#consentModal"
+                           style="width: 200px;">
+                            Take Experiment
                         </a>
-                    </p>
+                    </div>
+
+                </div>
+
+                <div class="col" style="margin-top: 100px;">
+
+                    <hr>
+
+                    <div class="col-md-6">
+                        <a href="https://www.utwente.nl/" target="_blank">University of Twente</a>
+                    </div>
+
+                    <div class="col-md-6">
+                        <a href="https://www.utwente.nl/en/education/master/programmes/computer-science/specialization/cyber-security/"
+                           target="_blank">
+                            Computer Security Program
+                        </a>
+                    </div>
+
                 </div>
 
             </div>
@@ -90,7 +116,9 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
-                <form method="post">
+                <form method="post" action="{{ route('start') }}">
+
+                    {!! csrf_field() !!}
 
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -109,9 +137,8 @@
                             You are about the participate in a student research project about GridMap passwords. This
                             research project is conducted as part of the Cyber-Crime Science course at the University of
                             Twente, taught by prof. dr. Pieter Hartel and prof. dr. Marianne Junger. This research
-                            project has been approved by the Ethical Committee of the faculty of EEMCS and has been
-                            assigned the identifier XXX. You participate in this research project using your own
-                            computer or handheld device.
+                            project has been approved by the Ethical Committee of the faculty of EEMCS. You participate
+                            in this research project using your own computer or handheld device.
                         </p>
 
                         <p>
@@ -181,101 +208,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('additional-css')
-    <style>
-        /*
- * Globals
- */
-
-        /* Links */
-        a,
-        a:focus,
-        a:hover {
-            color: #fff;
-        }
-
-        .modal a,
-        .modal a:focus,
-        .modal a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        /*
-         * Base structure
-         */
-
-        html,
-        body {
-            height: 100%;
-            background-color: #333;
-        }
-
-        /* Extra markup and styles for table-esque vertical and horizontal centering */
-        .site-wrapper {
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
-
-            display: table;
-            width: 100%;
-            height: 100%; /* For at least Firefox */
-            min-height: 100%;
-            -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
-        }
-
-        .site-wrapper-inner {
-            display: table-cell;
-            vertical-align: top;
-        }
-
-        .cover-container {
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        /* Padding for spacing */
-        .inner {
-            padding: 30px;
-        }
-
-        /*
-         * Cover
-         */
-
-        .cover {
-            padding: 0 20px;
-        }
-
-        .cover .btn-lg {
-            padding: 10px 20px;
-            font-weight: bold;
-        }
-
-        /*
-         * Affix and center
-         */
-
-        @media (min-width: 768px) {
-            /* Pull out the header and footer */
-            /* Start the vertical centering */
-            .site-wrapper-inner {
-                vertical-align: middle;
-            }
-
-            /* Handle the widths */
-            .cover-container {
-                width: 100%; /* Must be percentage or pixels for horizontal alignment */
-            }
-        }
-
-        @media (min-width: 992px) {
-            .cover-container {
-                width: 700px;
-            }
-        }
-    </style>
 @endsection
