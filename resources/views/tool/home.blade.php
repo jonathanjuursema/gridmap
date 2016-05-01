@@ -8,37 +8,21 @@
 
             <div class="cover-container">
 
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <h3 class="masthead-brand">GridMap Research Tool</h3>
-                        <nav>
-                            <ul class="nav masthead-nav">
-                                <li><a href="#about" data-toggle="modal" data-target="#aboutModal">About</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
                 <div class="inner cover">
                     <h1 class="cover-heading">GridMap Research Tool</h1>
                     <p class="lead">
                         This is a research tool for a research project conducted by students of the University of
-                        Twente.
-                        For more information about the research project and the students involved, click "Learn more"
-                        below.
+                        Twente. For more information about the research project and the students involved you can read
+                        the information brochure below.
                     </p>
                     <p class="lead">
-                        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#aboutModal">Learn
-                            more</a>
-                        <a href="#" class="btn btn-lg btn-success">Take the survey</a>
+                        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#aboutModal">
+                            Information Brochure
+                        </a>
+                        <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#consentModal">
+                            Take Survey
+                        </a>
                     </p>
-                </div>
-
-                <div class="mastfoot">
-                    <div class="inner">
-                        <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a
-                                    href="https://twitter.com/mdo">@mdo</a>.</p>
-                    </div>
                 </div>
 
             </div>
@@ -48,37 +32,151 @@
     </div>
 
     <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">About this research tool</h4>
+                    <h4 class="modal-title" id="aboutModalLabel">Project Information Brochure</h4>
                 </div>
-                <div class="modal-body">
-                    <h4>Research Project</h4>
+                <div class="modal-body" style="text-align: justify;">
+
                     <p>
-                        The GridMap Research Project is a project conducted by students at the University of Twente. The
-                        study is conducted as part of the course Cyber-Crime Science, part of the Cyber Security master
-                        program.
+                        This web application serves a research project of University of Twente students about GridMaps.
+                        To learn more about GridMaps in general, we suggest the
+                        <a href="https://dx.doi.org/10.1007/978-3-319-23829-6_6" target="_blank">original paper</a>
+                        on them by Nicolas van Balen and Haining Wang. During the experiment you will be asked to create
+                        a graphical password. This graphical password will then, anonymously, be analyzed by the
+                        researchers. Afterwards you will be asked a few questions related to why you chose a particular
+                        graphical password. You will also be asked to take part in the second part of the experiment, in
+                        which you will be asked to recall your graphical passwords after a certain time.
                     </p>
+
                     <p>
-                        The aim of the study is to evaluate gridmaps, a text-based password alternative proposed by
-                        Nicolas van Balen and Haining Wang (DOI: 10.1007/978-3-319-23829-6_6).
+                        The initial experiment will take between five and ten minutes, including the time needed to
+                        answer the questions. Should you agree to take part in the second part of the experiment you
+                        will receive an invitation, via e-mail, up to two times over the coming two months. Those
+                        additional experiments are conducted by the same researchers and take about two minutes each.
+                        You can take part in the initial experiment without taking part in the second experiment.
                     </p>
+
                     <p>
-                        The study is currently pending review from the ethical committee of the faculty of EEMCS at the
-                        University of Twente. This research tool is not yet operative.
+                        Any information you disclose while participating in this research will be anonymised and used
+                        only for this research. Participation is voluntary, and if at any time you wish to stop
+                        participating, you are free to do so.
                     </p>
-                    <h4>Students</h4>
+
                     <p>
-                        The research is conducted by Christiaan Boersma, Jonathan Juursema and Sven Santema, supervised
-                        by Pieter Hartel.
+                        If you would like to participate in this experiment, please click the button on the homepage to
+                        start the survey. There you will receive some additional information after which the experiment
+                        will start.
                     </p>
+
+                    <p>
+                        You can contact the research group by
+                        <a href="mailto:j.a.j.juursema@student.utwente.nl">e-mail</a>.
+                        The research team consists of Jonathan Juursema BSc, Sven Santema and Christiaan Boersma.
+                    </p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="consentModal" tabindex="-1" role="dialog" aria-labelledby="consentModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <form method="post">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="consentModalLabel">Informed Consent</h4>
+                    </div>
+
+                    <div class="modal-body" style="text-align: justify;">
+
+                        <p style="font-weight: 700;">
+                            In order to participate in our research project, we need you to give consent for involving
+                            you in our research project. Please read the consent form below carefully.
+                        </p>
+
+                        <p>
+                            You are about the participate in a student research project about GridMap passwords. This
+                            research project is conducted as part of the Cyber-Crime Science course at the University of
+                            Twente, taught by prof. dr. Pieter Hartel and prof. dr. Marianne Junger. This research
+                            project has been approved by the Ethical Committee of the faculty of EEMCS and has been
+                            assigned the identifier XXX. You participate in this research project using your own
+                            computer or handheld device.
+                        </p>
+
+                        <p>
+                            There is no danger in participating in this research project using your own computer or
+                            handheld device. Participating in this research will not lead to risks, discomfort or
+                            adverse effects of any kind. GridMap passwords are not yet used for authentication purposes,
+                            so providing us with a GridMap password has no negative effect on your online security. Any
+                            information you disclose while participating in this research will be anonymised, used only
+                            for this research and permanently destroyed afterwards. Participation is voluntary, and if
+                            at any time you wish to stop participating, you are free to do so. You can stop
+                            participating be closing your browser.
+                        </p>
+
+                        <p>
+                            If you have any questions before taking part of this survey, you can contact the student
+                            research group via <a href="mailto:j.a.j.juursema@student.utwente.nl" target="_blank">Jonathan
+                                Juursema BSc</a>.
+                        </p>
+
+                        <p>
+                            If you have complaints about this research project, you can contact the secretary of the
+                            Ethical Committee of the faculty of EEMCS.
+                        </p>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="adult" type="checkbox" required>
+                                I am at or above eighteen (18) years of age.
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="utwente" type="checkbox" required>
+                                I am either staff or a student of the University of Twente.
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="agree" type="checkbox" required>
+                                I have read and understood the above text, and hereby declare that ...
+                            </label>
+                        </div>
+
+                        <p style="font-style: italic;">
+                            ... I have been informed in a manner which is clear to me about the nature and method of the
+                            research as described on this website. My questions have been answered to my satisfaction. I
+                            agree of my own free will to participate in this research. I reserve the right to withdraw
+                            this consent without the need to give any reason and I am aware that I may withdraw from the
+                            experiment at any time. If research results related to me are to be used in scientific
+                            publications or made public in any other manner, then they will be made completely
+                            anonymous. My personal information will not be disclosed to third parties without my express
+                            permission.
+                        </p>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        <input type="submit" class="btn btn-success" value="Start the experiment">
+                    </div>
+
+                </form>
+
             </div>
         </div>
     </div>
@@ -98,14 +196,11 @@
             color: #fff;
         }
 
-        /* Custom default button */
-        .btn-default,
-        .btn-default:hover,
-        .btn-default:focus {
-            color: #333;
-            text-shadow: none; /* Prevent inheritence from `body` */
-            background-color: #fff;
-            border: 1px solid #fff;
+        .modal a,
+        .modal a:focus,
+        .modal a:hover {
+            color: #000;
+            text-decoration: underline;
         }
 
         /*
@@ -148,56 +243,6 @@
         }
 
         /*
-         * Header
-         */
-        .masthead-brand {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .masthead-nav > li {
-            display: inline-block;
-        }
-
-        .masthead-nav > li + li {
-            margin-left: 20px;
-        }
-
-        .masthead-nav > li > a {
-            padding-right: 0;
-            padding-left: 0;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff; /* IE8 proofing */
-            color: rgba(255, 255, 255, .75);
-            border-bottom: 2px solid transparent;
-        }
-
-        .masthead-nav > li > a:hover,
-        .masthead-nav > li > a:focus {
-            background-color: transparent;
-            border-bottom-color: #a9a9a9;
-            border-bottom-color: rgba(255, 255, 255, .25);
-        }
-
-        .masthead-nav > .active > a,
-        .masthead-nav > .active > a:hover,
-        .masthead-nav > .active > a:focus {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        @media (min-width: 768px) {
-            .masthead-brand {
-                float: left;
-            }
-
-            .masthead-nav {
-                float: right;
-            }
-        }
-
-        /*
          * Cover
          */
 
@@ -211,46 +256,23 @@
         }
 
         /*
-         * Footer
-         */
-
-        .mastfoot {
-            color: #999; /* IE8 proofing */
-            color: rgba(255, 255, 255, .5);
-        }
-
-        /*
          * Affix and center
          */
 
         @media (min-width: 768px) {
             /* Pull out the header and footer */
-            .masthead {
-                position: fixed;
-                top: 0;
-            }
-
-            .mastfoot {
-                position: fixed;
-                bottom: 0;
-            }
-
             /* Start the vertical centering */
             .site-wrapper-inner {
                 vertical-align: middle;
             }
 
             /* Handle the widths */
-            .masthead,
-            .mastfoot,
             .cover-container {
                 width: 100%; /* Must be percentage or pixels for horizontal alignment */
             }
         }
 
         @media (min-width: 992px) {
-            .masthead,
-            .mastfoot,
             .cover-container {
                 width: 700px;
             }
