@@ -11,8 +11,8 @@
                 <h1 style="margin: 100px auto;">GridMap Research Tool</h1>
 
                 <p style="text-align: justify;">
-                    This is a research tool for a research project conducted by students of the master program Computer
-                    Security at the University of Twente. For more information about the research project and the
+                    This is a research tool for a research project conducted by students of the course Cyber-Crime
+                    Science at the University of Twente. For more information about the research project and the
                     students involved you can read the information brochure below.
                 </p>
 
