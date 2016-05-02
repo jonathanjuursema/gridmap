@@ -23,26 +23,102 @@
                     <hr>
 
                     <p>
-                        Here be questions!
+                        Was the concept of GridMaps clear <strong>and</strong> did you understand how selecting and
+                        saving a GridMap password works?
                     </p>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="question_wasclear" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_wasclear" value="0" required> No
+                    </label>
 
                     <hr>
 
                     <p>
-                        Can we contact you again in a few weeks to see if you can recall your password? If so, you'll
-                        receive one e-mail to ask you to fill in your password. Nothing more. Your e-mail address will
-                        be stored encrypted and removed after the project is over.
+                        Did you base your password on the background image?
                     </p>
 
+                    <label class="radio-inline">
+                        <input type="radio" name="question_baseonbg" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_baseonbg" value="0" required> No
+                    </label>
+
+                    <hr>
+
                     <p>
-                        If you'd like to participate in this extended experiment, please provide your e-mail address
-                        below. If not, you can leave the field blank.
+                        @if($map == 1)
+                            The map depicted the campus of the University of Twente. Did you include a location on the
+                            campus you frequently visit in your password?
+                        @elseif($map == 2)
+                            The map depicted an image of a zoo. Did you include something on the map you feel a personal
+                            connection to, like your favorite animal or a booth of your favorite food?
+                        @endif
                     </p>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="question_association" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_association" value="0" required> No
+                    </label>
+
+                    <hr>
+
+                    <p>
+                        Do you think you'll be able to recall the password you just selected in a few weeks?
+                    </p>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="question_canrecall" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_canrecall" value="0" required> No
+                    </label>
+
+                    <hr>
+
+                    <p>
+                        Do you think family or friends will be able to guess your password?
+                    </p>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="question_canguess" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_canguess" value="0" required> No
+                    </label>
+
+                    <hr>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="question_mayrecall">
+                            Can we contact you again once in a few weeks to see if you are able to recall the password you
+                            just picked?
+                        </label>
+                    </div>
+
+                    <br>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="question_wantsresults">
+                            Would you like to receive one e-mail containing the report of our experiment?
+                        </label>
+                    </div>
+
+                    <br>
 
                     <p>
                         Should you choose to enter your e-mail it will be stored with your selected password and survey
                         answers. It will not be used to identify you in relation with the password.
                     </p>
+
+                    <br>
 
                     <p>
                         <label for="email">Your e-mail address:</label>
@@ -51,7 +127,7 @@
 
                     <hr>
 
-                    <input type="submit" class="form-control btn btn-success" value="Submit survey">
+                    <input id="submit" type="submit" class="form-control btn btn-success" value="Submit survey">
 
                 </div>
 
@@ -61,4 +137,18 @@
 
     </div>
 
+@endsection
+
+@section('additional-css')
+    <style>
+
+        hr {
+            margin: 50px 0;
+        }
+
+        #submit {
+            margin-bottom: 50px;
+        }
+
+    </style>
 @endsection

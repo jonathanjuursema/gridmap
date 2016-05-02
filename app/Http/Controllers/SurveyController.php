@@ -34,7 +34,7 @@ class SurveyController extends Controller
 
             if (!$participant->survey) {
                 // Participation ok. Survey not done yet. Do it now.
-                return view('tool.survey');
+                return view('tool.survey', ['map' => $participant->map]);
             }
 
             // Entire participation is already completed. Reset the participation.
@@ -84,6 +84,18 @@ class SurveyController extends Controller
     }
 
     private function processSurvey(Request $request, $participant) {
+
+        if (!($request->has('question_wasclear') && $request->has('question_baseonbg') && $request->has('question_association') && $request->has('question_canrecall') && $request->has('question_canguess'))) {
+            return Redirect::back();
+        }
+
+        $participant->question_wasclear = $request->question_wasclear;
+        $participant->question_baseonbg = $request->question_baseonbg;
+        $participant->question_association = $request->question_association;
+        $participant->question_canrecall = $request->question_canrecall;
+        $participant->question_canguess = $request->question_canguess;
+        $participant->question_wantsresults = $request->has('question_wantsresults');
+        $participant->question_mayrecall = $request->has('question_mayrecall');
 
         $request->session()->forget('participant');
 
