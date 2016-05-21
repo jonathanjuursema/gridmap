@@ -27,7 +27,7 @@ class SurveyController extends Controller
                 return Redirect::route('home');
             }
 
-            if ($participant->password == null) {
+            if ($participant->password === null) {
                 // Participation ok. No password picked yet. Pick one now.
                 return Redirect::route('pickpassword');
             }
@@ -62,7 +62,7 @@ class SurveyController extends Controller
                 return Redirect::route('home');
             }
 
-            if ($participant->password == null) {
+            if ($participant->password === null) {
                 // Participation ok. No password picked yet. Pick one now.
                 return Redirect::route('pickpassword');
             }
@@ -97,6 +97,8 @@ class SurveyController extends Controller
         $participant->question_wantsresults = $request->has('question_wantsresults');
         $participant->question_mayrecall = $request->has('question_mayrecall');
 
+        $participant->survey = true;
+
         $request->session()->forget('participant');
 
         if ($request->email != "") {
@@ -105,6 +107,72 @@ class SurveyController extends Controller
         } else {
             $request->session()->flash('message', 'Thank you for your participating.');
         }
+
+        $participant->save();
+
+        return Redirect::route('home');
+
+    }
+
+    public function startrecall(Request $request) {
+
+        // See if there is a participation underway.
+        if ($request->session()->has('recall')) {
+
+            // Find participation.
+            $participant = Participant::find($request->session()->get('recall'));
+
+            if ($participant == null || $participant->recallsurvey) {
+                $request->session()->forget('recall');
+                return Redirect::route('home');
+            }
+
+            if ($participant->guessedcorrectly === null) {
+                return Redirect::route('recallpassword');
+            }
+
+            return view('tool.recallsurvey', ['participant' => $participant]);
+
+        }
+
+        return Redirect::route('home');
+
+    }
+
+    public function submitrecall(Request $request) {
+
+        // See if there is a participation underway.
+        if ($request->session()->has('recall')) {
+
+            // Find participation.
+            $participant = Participant::find($request->session()->get('recall'));
+
+            if ($participant == null || $participant->recallsurvey) {
+                $request->session()->forget('recall');
+                return Redirect::route('home');
+            }
+
+            if ($participant->guessedcorrectly === null) {
+                return Redirect::route('recallpassword');
+            }
+
+            return $this->processRecallSurvey($request, $participant);
+
+        }
+
+        return Redirect::route('home');
+
+    }
+
+    private function processRecallSurvey(Request $request, $participant) {
+
+
+
+        $participant->recallsurvey = true;
+
+        $request->session()->forget('participant');
+
+        $request->session()->flash('message', 'Thank you for your participating.');
 
         $participant->save();
 

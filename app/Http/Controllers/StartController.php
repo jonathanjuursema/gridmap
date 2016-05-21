@@ -65,6 +65,7 @@ class StartController extends Controller
         $participant = new Participant();
         $participant->map = mt_rand(1,2);
         $participant->disabledfields = mt_rand(0, 1);
+        $participant->emailsent = false;
         $participant->save();
 
         $request->session()->put('participant', $participant->id);

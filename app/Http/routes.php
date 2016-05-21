@@ -36,4 +36,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('survey/submit', ['as' => 'submitsurvey', 'uses' => 'SurveyController@submit']);
 
+    Route::get('recall/{id}/{secret}', ['as' => 'recall', 'uses' => 'RecallController@start']);
+
+    Route::get('recall', ['as' => 'recallpassword', 'uses' => 'RecallController@recall']);
+
+    Route::post('recall', ['as' => 'recallpassword', 'uses' => 'RecallController@submit']);
+
+    Route::get('survey/recall', ['as' => 'recallsurvey', 'uses' => 'SurveyController@startrecall']);
+
+    Route::post('survey/recall', ['as' => 'submitrecallsurvey', 'uses' => 'SurveyController@submitrecall']);
+
 });

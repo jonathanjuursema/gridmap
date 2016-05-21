@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\ProcessPasswords::class
+        Commands\ProcessPasswords::class,
+        Commands\SendEmails::class
     ];
 
     /**
