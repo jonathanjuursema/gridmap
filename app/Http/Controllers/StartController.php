@@ -20,7 +20,7 @@ class StartController extends Controller
     public function start(Request $request)
     {
 
-        if (!$request->adult || !$request->utwente || !$request->agree) {
+        if (!$request->adult || !$request->utwente || !$request->agree || !config('gridmap.open_entries')) {
 
             // If not all consent is given, stop and go back.
             return Redirect::route('home');

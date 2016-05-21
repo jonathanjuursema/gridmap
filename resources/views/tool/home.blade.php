@@ -101,7 +101,7 @@
                     <p>
                         You can contact the research group by
                         <a href="mailto:j.a.j.juursema@student.utwente.nl">e-mail</a>.
-                        The research team consists of Jonathan Juursema BSc, Sven Santema and Christiaan Boersma.
+                        The research team consists of Jonathan Juursema, Sven Santema and Christiaan Boersma.
                     </p>
 
                 </div>
@@ -123,83 +123,100 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="consentModalLabel">Informed Consent</h4>
+                        <h4 class="modal-title"
+                            id="consentModalLabel">{{ ( config('gridmap.open_entries') ? 'Informed Consent' : 'Application Closed' ) }}</h4>
                     </div>
 
                     <div class="modal-body" style="text-align: justify;">
 
-                        <p style="font-weight: 700;">
-                            In order to participate in our research project, we need you to give consent for involving
-                            you in our research project. Please read the consent form below carefully.
-                        </p>
+                        @if(config('gridmap.open_entries'))
 
-                        <p>
-                            You are about the participate in a student research project about GridMap passwords. This
-                            research project is conducted as part of the Cyber-Crime Science course at the University of
-                            Twente, taught by prof. dr. Pieter Hartel and prof. dr. Marianne Junger. This research
-                            project has been approved by the Ethical Committee of the faculty of EEMCS. You participate
-                            in this research project using your own computer or handheld device.
-                        </p>
+                            <p style="font-weight: 700;">
+                                In order to participate in our research project, we need you to give consent for
+                                involving you in our research project. Please read the consent form below carefully.
+                            </p>
 
-                        <p>
-                            There is no danger in participating in this research project using your own computer or
-                            handheld device. Participating in this research will not lead to risks, discomfort or
-                            adverse effects of any kind. GridMap passwords are not yet used for authentication purposes,
-                            so providing us with a GridMap password has no negative effect on your online security. Any
-                            information you disclose while participating in this research will be anonymised, used only
-                            for this research and permanently destroyed afterwards. Participation is voluntary, and if
-                            at any time you wish to stop participating, you are free to do so. You can stop
-                            participating be closing your browser.
-                        </p>
+                            <p>
+                                You are about the participate in a student research project about GridMap passwords.
+                                This research project is conducted as part of the Cyber-Crime Science course at the
+                                University of Twente, taught by prof. dr. Pieter Hartel and prof. dr. Marianne Junger.
+                                This research project has been approved by the Ethical Committee of the faculty of
+                                EEMCS. You participate in this research project using your own computer or handheld
+                                device.
+                            </p>
 
-                        <p>
-                            If you have any questions before taking part of this survey, you can contact the student
-                            research group via <a href="mailto:j.a.j.juursema@student.utwente.nl" target="_blank">Jonathan
-                                Juursema BSc</a>.
-                        </p>
+                            <p>
+                                There is no danger in participating in this research project using your own computer or
+                                handheld device. Participating in this research will not lead to risks, discomfort or
+                                adverse effects of any kind. GridMap passwords are not yet used for authentication
+                                purposes, so providing us with a GridMap password has no negative effect on your online
+                                security. Any information you disclose while participating in this research will be
+                                anonymised, used only for this research and permanently destroyed afterwards.
+                                Participation is voluntary, and if at any time you wish to stop participating, you are
+                                free to do so. You can stop participating be closing your browser.
+                            </p>
 
-                        <p>
-                            If you have complaints about this research project, you can contact the secretary of the
-                            Ethical Committee of the faculty of EEMCS.
-                        </p>
+                            <p>
+                                If you have any questions before taking part of this survey, you can contact the student
+                                research group via <a href="mailto:j.a.j.juursema@student.utwente.nl" target="_blank">Jonathan
+                                    Juursema</a>.
+                            </p>
 
-                        <div class="checkbox">
-                            <label>
-                                <input name="adult" type="checkbox" required>
-                                I am at or above eighteen (18) years of age.
-                            </label>
-                        </div>
+                            <p>
+                                If you have complaints about this research project, you can contact the secretary of the
+                                Ethical Committee of the faculty of EEMCS.
+                            </p>
 
-                        <div class="checkbox">
-                            <label>
-                                <input name="utwente" type="checkbox" required>
-                                I am either staff or a student of the University of Twente.
-                            </label>
-                        </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="adult" type="checkbox" required>
+                                    I am at or above eighteen (18) years of age.
+                                </label>
+                            </div>
 
-                        <div class="checkbox">
-                            <label>
-                                <input name="agree" type="checkbox" required>
-                                I have read and understood the above text, and hereby declare that ...
-                            </label>
-                        </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="utwente" type="checkbox" required>
+                                    I am either staff or a student of the University of Twente.
+                                </label>
+                            </div>
 
-                        <p style="font-style: italic;">
-                            ... I have been informed in a manner which is clear to me about the nature and method of the
-                            research as described on this website. My questions have been answered to my satisfaction. I
-                            agree of my own free will to participate in this research. I reserve the right to withdraw
-                            this consent without the need to give any reason and I am aware that I may withdraw from the
-                            experiment at any time. If research results related to me are to be used in scientific
-                            publications or made public in any other manner, then they will be made completely
-                            anonymous. My personal information will not be disclosed to third parties without my express
-                            permission.
-                        </p>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="agree" type="checkbox" required>
+                                    I have read and understood the above text, and hereby declare that ...
+                                </label>
+                            </div>
+
+                            <p style="font-style: italic;">
+                                ... I have been informed in a manner which is clear to me about the nature and method of
+                                the research as described on this website. My questions have been answered to my
+                                satisfaction. I agree of my own free will to participate in this research. I reserve the
+                                right to withdraw this consent without the need to give any reason and I am aware that I
+                                may withdraw from the experiment at any time. If research results related to me are to
+                                be used in scientific publications or made public in any other manner, then they will be
+                                made completely anonymous. My personal information will not be disclosed to third
+                                parties without my express permission.
+                            </p>
+
+                        @else
+
+                            <p>
+
+                                Thank you for the interest in our experiment. Unfortunately we are no longer accepting
+                                entries as we have moved on to the second phase of the experiment.
+
+                            </p>
+
+                        @endif
 
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        <input type="submit" class="btn btn-success" value="Start the experiment">
+                        @if(config('gridmap.open_entries'))
+                            <input type="submit" class="btn btn-success" value="Start the experiment">
+                        @endif
                     </div>
 
                 </form>
