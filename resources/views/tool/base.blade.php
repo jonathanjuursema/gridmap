@@ -34,17 +34,19 @@
 </head>
 <body>
 
+@yield('body')
+
 @if(Session::has('message'))
 
     <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
 
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    {{ Session::get('message') }}
+                    {!! Session::get('message') !!}
                 </div>
 
             </div>
@@ -58,8 +60,6 @@
     </script>
 
 @endif
-
-@yield('body')
 
 </body>
 </html>

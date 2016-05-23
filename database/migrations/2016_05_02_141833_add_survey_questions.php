@@ -34,13 +34,13 @@ class AddSurveyQuestions extends Migration
     {
 
         Schema::table('participants', function ($table) {
-            $table->drop('question_wasclear');
-            $table->drop('question_baseonbg');
-            $table->drop('question_association');
-            $table->drop('question_canrecall');
-            $table->drop('question_canguess');
-            $table->drop('question_wantsresults');
-            $table->drop('question_mayrecall');
+            $table->dropColumn('question_wasclear');
+            $table->dropColumn('question_baseonbg');
+            $table->dropColumn('question_association');
+            $table->dropColumn('question_canrecall');
+            $table->dropColumn('question_canguess');
+            $table->dropColumn('question_wantsresults');
+            $table->dropColumn('question_mayrecall');
         });
 
     }

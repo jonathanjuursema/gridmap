@@ -15,25 +15,67 @@
                     <h1 style="margin: 100px auto; text-align: center;">Survey</h1>
 
                     <p>
-                        Thank you for taking part in our second experiment.
+                        Thank you for taking part in our second experiment. Below are a few final questions. We would
+                        appreciate you filling these out as well. After submitting the survey you will learn whether you
+                        recalled your password correctly.
+                    </p>
 
-                        @if ($participant->guessedcorrectly)
-                            <strong>Congratulations!</strong> You successfully remembered and recalled your password.
-                        @else
-                            Unfortunately you have not recalled your password correctly. But thank you for trying.
-                        @endif
+                    <hr>
 
-                        There
-                        were {{ floor((strtotime($participant->updated_at) - strtotime($participant->created_at)) / (3600*24)) }}
-                        days in between picking your password and recalling it.
+                    <p>
+                        Was the process of recalling your password on the previous page clear?
+                    </p>
 
+                    <label class="radio-inline">
+                        <input type="radio" name="question_recallclear" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_recallclear" value="0" required> No
+                    </label>
+
+                    <hr>
+
+                    <p>
+                        Do you think you recalled the right password?
+                    </p>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="question_thinkwasright" value="1" required> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="question_thinkwasright" value="0" required> No
+                    </label>
+
+                    <hr>
+
+                    <p>
+                        How would you feel when websites would start using GridMap passwords instead of text-based passwords?
                     </p>
 
                     <p>
-                        Below are a few final questions. We would appreciate you filling these out as well. After
-                        submitting the survey you will not be contacted again about this experiment, unless you
-                        indicated earlier you would like to receive the results.
+                        <i>I would be ...</i>
                     </p>
+
+                    <div class="radio">
+                        <label>
+                            <input name="question_opinion" type="radio" value="0" required>
+                            ... against it.
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                            <input name="question_opinion" type="radio" value="1" required>
+                            ... indifferent.
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                            <input name="question_opinion" type="radio" value="2" required>
+                            ... in favor.
+                        </label>
+                    </div>
 
                     <hr>
 

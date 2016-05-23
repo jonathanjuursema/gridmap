@@ -82,8 +82,17 @@ class RecallController extends Controller
                 return Redirect::route('recallsurvey');
             }
 
-            $participant->guessedcorrectly = (RecallController::translatepassword($request->password, $request->session()->get('gridnumbers')) == Crypt::decrypt($participant->password));
+
+
+            if (!(ctype_alpha($request->password) && strlen($request->password) % 2 == 0)) {
+                $request->session()->flash('message', 'Your password should consist of an even number of letters.');
+                return Redirect::back();
+            }
+
+            $participant->guessedcorrectly = (RecallController::translatepassword(strtolower($request->password), $request->session()->get('gridnumbers')) == Crypt::decrypt($participant->password));
             $participant->save();
+
+            $request->session()->forget('gridnumbers');
 
             return Redirect::route('recallsurvey');
 

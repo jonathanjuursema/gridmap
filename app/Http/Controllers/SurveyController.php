@@ -13,7 +13,8 @@ use Crypt;
 class SurveyController extends Controller
 {
 
-    public function start(Request $request) {
+    public function start(Request $request)
+    {
 
         // See if there is a participation underway.
         if ($request->session()->has('participant')) {
@@ -48,7 +49,8 @@ class SurveyController extends Controller
 
     }
 
-    public function submit(Request $request) {
+    public function submit(Request $request)
+    {
 
         // See if there is a participation underway.
         if ($request->session()->has('participant')) {
@@ -83,7 +85,8 @@ class SurveyController extends Controller
 
     }
 
-    private function processSurvey(Request $request, $participant) {
+    private function processSurvey(Request $request, $participant)
+    {
 
         if (!($request->has('question_wasclear') && $request->has('question_baseonbg') && $request->has('question_association') && $request->has('question_canrecall') && $request->has('question_canguess'))) {
             return Redirect::back();
@@ -114,7 +117,8 @@ class SurveyController extends Controller
 
     }
 
-    public function startrecall(Request $request) {
+    public function startrecall(Request $request)
+    {
 
         // See if there is a participation underway.
         if ($request->session()->has('recall')) {
@@ -139,7 +143,8 @@ class SurveyController extends Controller
 
     }
 
-    public function submitrecall(Request $request) {
+    public function submitrecall(Request $request)
+    {
 
         // See if there is a participation underway.
         if ($request->session()->has('recall')) {
@@ -164,15 +169,22 @@ class SurveyController extends Controller
 
     }
 
-    private function processRecallSurvey(Request $request, $participant) {
+    private function processRecallSurvey(Request $request, $participant)
+    {
 
+        if (!($request->has('question_thinkwasright') && $request->has('question_opinion') && $request->has('question_recallclear'))) {
+            return Redirect::back();
+        }
 
+        $participant->question_thinkwasright = $request->question_thinkwasright;
+        $participant->question_opinion = $request->question_opinion;
+        $participant->question_recallclear = $request->question_recallclear;
 
         $participant->recallsurvey = true;
 
-        $request->session()->forget('participant');
+        $request->session()->forget('recall');
 
-        $request->session()->flash('message', 'Thank you for your participating.');
+        $request->session()->flash('message', 'Thank you for your participating. You recalled your password <strong>' . ($participant->guessedcorrectly ? "correctly" : "incorrectly") . '</strong>. There were <strong>' . floor((strtotime($participant->updated_at) - strtotime($participant->created_at)) / (3600 * 24)) . '</strong> days between picking your password and submitting it.');
 
         $participant->save();
 
