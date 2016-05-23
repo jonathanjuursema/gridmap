@@ -19,10 +19,14 @@ class RecallController extends Controller
 
     function start($id, $secret, Request $request)
     {
-        $participant = Participant::where('id', $id)->where('email', $secret)->firstOrFail();
-        $request->session()->put('recall', $participant->id);
+        if (config('gridmap.open_recall')) {
+            $participant = Participant::where('id', $id)->where('email', $secret)->firstOrFail();
+            $request->session()->put('recall', $participant->id);
 
-        return Redirect::route('recallpassword');
+            return Redirect::route('recallpassword');
+        } else {
+            return Redirect::route('home');
+        }
     }
 
     function recall(Request $request)
