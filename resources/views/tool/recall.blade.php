@@ -65,7 +65,7 @@
                     <h4>Recalling your password</h4>
 
                     <p>
-                        On {{ date('F j', strtotime($participant->updated_at)) }} you picked a password while taking
+                        On {{ date('F j', strtotime($participant->created_at)) }} you picked a password while taking
                         part in the initial phase of our experiment. Now you are tasked to recall this password. Your
                         password consists of a sequence of cells on the grid behind this window. Now, in those cells,
                         are two characters. In order to construct the requested one-time password, you need to put the
