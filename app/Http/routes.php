@@ -46,4 +46,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('survey/recall', ['as' => 'submitrecallsurvey', 'uses' => 'SurveyController@submitrecall']);
 
+
+    Route::post('auth', ['as' => 'auth', 'uses' => 'ManagementController@auth']);
+
+    Route::get('classify', ['as' => 'classify', 'uses' => 'ManagementController@classify']);
+
+    Route::post('classify', ['as' => 'classify', 'uses' => 'ManagementController@classifyPost']);
+
 });
