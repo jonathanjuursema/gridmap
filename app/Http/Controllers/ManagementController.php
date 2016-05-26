@@ -29,16 +29,16 @@ class ManagementController extends Controller
             return view('tool.auth');
         }
 
-        $participation = Participant::whereNotNull('password')->whereNull('has_pattern')->whereNull('has_form')->orderByRaw("RAND()")->first();
+        $participations = Participant::whereNotNull('password')->whereNull('has_pattern')->whereNull('has_form')->orderByRaw("RAND()")->get();
 
-        if (!$participation) {
+        if (count($participations) === 0) {
             $request->session()->flash('message', 'There is nothing more to classify!');
             return Redirect::route('home');
         }
 
-        $password = explode(',', Crypt::decrypt($participation->password));
+        $password = explode(',', Crypt::decrypt($participations[0]->password));
 
-        return view('tool.classify', ['data' => $participation, 'password' => $password]);
+        return view('tool.classify', ['data' => $participations[0], 'password' => $password, 'left' => count($participations)]);
 
     }
 

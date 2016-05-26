@@ -45,7 +45,7 @@
                         </label>
                     </div>
 
-                    <input type="submit" class="btn btn-success" href="#" role="button" value="Submit">
+                    <input type="submit" class="btn btn-success" href="#" role="button" value="Submit ({{ $left }} to go)">
 
                 </form>
 
