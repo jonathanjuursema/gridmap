@@ -132,7 +132,7 @@ class ManagementController extends Controller
 
         $headers = ['Content-type' => 'text/plain', 'Content-Disposition' => sprintf('attachment; filename="%s"', "gridmap-export.csv"), 'Content-Length' => sizeof($response)];
 
-        return Response::make($response, 200);
+        return Response::make($response, 200, $headers);
 
     }
 
