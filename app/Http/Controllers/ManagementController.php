@@ -29,7 +29,7 @@ class ManagementController extends Controller
             return view('tool.auth');
         }
 
-        $participations = Participant::whereNotNull('password')->whereNull('has_pattern')->whereNull('has_form')->orderByRaw("RAND()")->get();
+        $participations = Participant::whereNotNull('password')->whereNull('password_category')->orderByRaw("RAND()")->get();
 
         if (count($participations) === 0) {
             $request->session()->flash('message', 'There is nothing more to classify!');
@@ -51,8 +51,7 @@ class ManagementController extends Controller
 
         $participation = Participant::findOrFail($request->id);
 
-        $participation->has_pattern = $request->has('pattern');
-        $participation->has_form = $request->has('form');
+        $participation->password_category = $request->has('cat1') + $request->has('cat2') * 2 + $request->has('cat3') * 4;
 
         $participation->save();
 

@@ -33,15 +33,28 @@
 
                     <div class="checkbox" style="margin-right: 25px;">
                         <label>
-                            <input type="checkbox" name="pattern" value="yes">
-                            This password has a pattern.
+                            Map ID: #{{ $data->map }} ({{ ($data->disabledfields ? 'with' : 'without') }} disabled fields)
                         </label>
                     </div>
 
                     <div class="checkbox" style="margin-right: 25px;">
                         <label>
-                            <input type="checkbox" name="form" value="yes">
-                            This password has a form.
+                            <input type="checkbox" name="cat1" value="yes">
+                            Category I
+                        </label>
+                    </div>
+
+                    <div class="checkbox" style="margin-right: 25px;">
+                        <label>
+                            <input type="checkbox" name="cat2" value="yes">
+                            Category II
+                        </label>
+                    </div>
+
+                    <div class="checkbox" style="margin-right: 25px;">
+                        <label>
+                            <input type="checkbox" name="cat3" value="yes">
+                            Category III
                         </label>
                     </div>
 
