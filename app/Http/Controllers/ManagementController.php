@@ -60,7 +60,8 @@ class ManagementController extends Controller
 
     }
 
-    public function export(Request $request) {
+    public function export(Request $request)
+    {
 
         if (!$request->session()->has('admin')) {
             return view('tool.auth');
@@ -108,7 +109,7 @@ class ManagementController extends Controller
                 (($participant->password_category & 1) == 1 ? 1 : 0),
                 (($participant->password_category & 2) == 2 ? 1 : 0),
                 (($participant->password_category & 4) == 4 ? 1 : 0),
-                $participant->guesscorrectly,
+                ($participant->guessedcorrectly ? 1 : 0),
                 $participant->survey,
                 $participant->recallsurvey,
                 $participant->question_wasclear,
@@ -125,13 +126,13 @@ class ManagementController extends Controller
 
         $response = "";
 
-        foreach($data as $datarow) {
+        foreach ($data as $datarow) {
             $response = $response . implode(",", $datarow) . "\r\n";
         }
 
-        $headers = ['Content-type'=>'text/plain', 'Content-Disposition'=>sprintf('attachment; filename="%s"', "gridmap-export.csv"),'Content-Length'=>sizeof($response)];
+        $headers = ['Content-type' => 'text/plain', 'Content-Disposition' => sprintf('attachment; filename="%s"', "gridmap-export.csv"), 'Content-Length' => sizeof($response)];
 
-        return Response::make($response, 200, $headers);
+        return Response::make($response, 200);
 
     }
 
