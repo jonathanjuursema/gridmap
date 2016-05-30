@@ -53,4 +53,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('classify', ['as' => 'classify', 'uses' => 'ManagementController@classifyPost']);
 
+    Route::get('export', ['as' => 'export', 'uses' => 'ManagementController@export']);
+
+    Route::get('export/csv', ['as' => 'export::file', 'uses' => 'ManagementController@exportData']);
+
 });
