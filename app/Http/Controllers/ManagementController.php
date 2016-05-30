@@ -109,7 +109,7 @@ class ManagementController extends Controller
                 (($participant->password_category & 1) == 1 ? 1 : 0),
                 (($participant->password_category & 2) == 2 ? 1 : 0),
                 (($participant->password_category & 4) == 4 ? 1 : 0),
-                ($participant->guessedcorrectly ? 1 : 0),
+                ($participant->guessedcorrectly === null ? null : ($participant->guessedcorrectly ? 1 : 0)),
                 $participant->survey,
                 $participant->recallsurvey,
                 $participant->question_wasclear,
