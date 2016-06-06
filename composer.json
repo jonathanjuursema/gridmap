@@ -1,9 +1,8 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "jonathanjuursema/gridmap",
+  "description": "GridMap experiment tool.",
   "keywords": [
-    "framework",
-    "laravel"
+    "gridmap"
   ],
   "license": "MIT",
   "type": "project",
@@ -29,7 +28,6 @@
   },
   "autoload-dev": {
     "classmap": [
-      "tests/TestCase.php"
     ]
   },
   "scripts": {

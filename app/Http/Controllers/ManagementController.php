@@ -97,7 +97,8 @@ class ManagementController extends Controller
             "ThinkOthersCanGuess",
             "ThinkRecalledRight",
             "Opinion",
-            "RecallWasClear"
+            "RecallWasClear",
+            "ParticipantType"
         ]);
 
         foreach ($participants as $participant) {
@@ -133,6 +134,33 @@ class ManagementController extends Controller
         $headers = ['Content-type' => 'text/plain', 'Content-Disposition' => sprintf('attachment; filename="%s"', "gridmap-export.csv"), 'Content-Length' => sizeof($response)];
 
         return Response::make($response, 200, $headers);
+
+    }
+
+    public function heatmap(Request $request)
+    {
+
+        if (!$request->session()->has('admin')) {
+            return view('tool.auth');
+        }
+
+        $participants = Participant::where('map', $request->map)->get();
+
+        $heatmap = [];
+        for ($i = 1; $i <= 500; $i++) {
+            $heatmap[$i] = 0;
+        }
+
+        foreach ($participants as $participant) {
+            $p = explode(",", Crypt::decrypt($participant->password));
+            if (count($p) < 20) {
+                foreach ($p as $part) {
+                    $heatmap[$part]++;
+                }
+            }
+        }
+
+        return view('tool.heatmap', ['heatmap' => $heatmap, 'map' => $request->map]);
 
     }
 

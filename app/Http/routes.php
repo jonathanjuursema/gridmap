@@ -57,4 +57,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('export/csv', ['as' => 'export::file', 'uses' => 'ManagementController@exportData']);
 
+    Route::get('heatmap/{map}', ['as' => 'heatmap', 'uses' => 'ManagementController@heatmap']);
+
 });
